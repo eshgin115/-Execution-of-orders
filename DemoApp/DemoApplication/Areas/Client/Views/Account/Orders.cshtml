@@ -1,0 +1,38 @@
+﻿@using DemoApplication.Areas.Client.ViewModels.Account
+@model List<OrderViewModel>
+<div class="col-lg-9 col-12 mt--30 mt-lg--0">
+    <!-- Single Tab Content Start -->
+    <div class="myaccount-content">
+        <h3>Orders</h3>
+        <div class="myaccount-table table-responsive text-center">
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Order ID</th>
+                        <th>OrderDate</th>
+                        <th>CurrentStatus</th>
+                        <th>TotalPrice</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                   
+                            <td>@item.Identifikator</td>
+                            <td>@item.OrderDate</td>
+                            <td>@item.CurrentStatus</td>
+                            <td>@item.TotalPrice</td>
+                            <td><a href="cart.html" class="btn">View</a></td>
+                        </tr>
+                    }
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Single Tab Content End -->
+</div>
+
+<!-- My Account Tab Content End -->

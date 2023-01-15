@@ -1,0 +1,28 @@
+﻿@using DemoApplication.Areas.Client.ViewModels.Shopping
+@model List<ProductCookieViewModel>
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td class="pro-remove">
+          @*  <a asp-route="book-delete-individual" asp-route-id="@item.Id" class="col-3 btn btn-danger">Delete</a>*@
+        </td>
+        <td class="pro-thumbnail">
+            <a href="#">
+                <img src="~/@item.ImageUrl" alt="Product">
+            </a>
+        </td>
+        <td class="pro-title"><a href="#">@item.Title</a></td>
+        <td class="pro-price"><span>$@item.Price</span></td>
+        <td class="pro-quantity">
+            <div class="pro-qty">
+                <div class="count-input-block">
+                    <input type="number" class="form-control text-center"
+                       value="1">
+                </div>
+            </div>
+        </td>
+        <td class="pro-subtotal"><span>$@item.Quantity</span></td>
+    </tr>
+}
