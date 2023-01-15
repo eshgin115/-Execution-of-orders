@@ -87,6 +87,12 @@ namespace DemoApplication.Areas.Client.Controllers
 
             await _orderService.AddOrderProductAsync(model, order.Id);
 
+            var pasketProducts = await _dbContext.BasketProducts
+                        .Where(bp => bp.Basket.UserId == _userService.CurrentUser.Id)
+                       .ToListAsync();
+
+             _dbContext.BasketProducts.RemoveRange(pasketProducts);
+
 
             await _dbContext.SaveChangesAsync();
 

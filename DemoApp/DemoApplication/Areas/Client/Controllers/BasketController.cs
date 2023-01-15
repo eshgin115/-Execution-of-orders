@@ -56,7 +56,9 @@ namespace DemoApplication.Areas.Client.Controllers
 
             if (_userService.IsAuthenticated)
             {
-                var basketProduct = await _dataContext.BasketProducts.FirstOrDefaultAsync(p => p.BookId == id);
+                var basketProduct = await _dataContext.BasketProducts
+                    .Where(bp => bp.Basket.UserId == _userService.CurrentUser.Id)
+                    .FirstOrDefaultAsync(p => p.BookId == id);
 
                 _dataContext.BasketProducts.Remove(basketProduct);
                 await _dataContext.SaveChangesAsync();
