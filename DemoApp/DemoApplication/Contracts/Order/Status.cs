@@ -37,15 +37,15 @@
             switch (status)
             {
                 case 0:
-                    return  $" Hörmətli {firstName} {lastName}, sizin {order_number} təsdiqləndi.";
+                    return  $" Hörmətli {firstName} {lastName}, sizin {order_number} nömrəli sifariş təsdiqləndi.";
            
                 case 2:
-                    return $"Hörmətli {firstName} {lastName}, sizin {order_number}  təsdiqlənmədi.";
+                    return $"Hörmətli {firstName} {lastName}, sizin {order_number} nömrəli sifariş təsdiqlənmədi.";
 
                 case 4:
-                    return $"Hörmətli {firstName} {lastName}, sizin {order_number} göndərildi, kuryer sizinlə əlaqə saxlayacaq.";
+                    return $"Hörmətli {firstName} {lastName}, sizin {order_number} nömrəli sifariş göndərildi, kuryer sizinlə əlaqə saxlayacaq.";
                 case 8:
-                    return $"Hörmətli {firstName} {lastName}, sizin {order_number} kuryer tərəfindən təhvil verildi.";
+                    return $"Hörmətli {firstName} {lastName}, sizin {order_number} nömrəli sifariş kuryer tərəfindən təhvil verildi.";
 
 
 
