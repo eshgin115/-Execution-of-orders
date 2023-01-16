@@ -36,16 +36,19 @@ namespace DemoApplication.Areas.Admin.Controllers
                           ))
                    .ToListAsync();
 
-            return View();
+            return View(model);
         }
         [HttpGet("update/{id}", Name = "admin-order-update")]
         public async Task<IActionResult> UpdateAsync(string id)
         {
-            var order = await _dbContext.Orders.Select(o => o.Id == id).ToListAsync();
-            if (order is null)
-            {
-                return NotFound();
-            }
+            //var order = await _dbContext.Orders.Include(o=>o.OrderProducts).Select(o=>new UpdateViewModel);
+
+            //var model = new UpdateViewModel
+            //{
+            //    Statuses = Status
+            //};
+            
+          
             return View();
         }
         [HttpPost("delete/{id}", Name = "admin-order-delete")]

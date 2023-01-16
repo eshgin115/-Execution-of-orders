@@ -1,0 +1,26 @@
+﻿@using DemoApplication.Contracts.Order
+@model UpdateViewModel
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Add new book image</h4>
+            </div>
+            <div class="card-body">
+                <div class="general-label">
+                    <form method="POST" asp-route="admin-order-update" enctype="multipart/form-data">
+                        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                        <label asp-for="Statuses" class="control-label"></label>
+                        <select asp-for="Statuses"
+                                class="form-control"
+                                asp-items="Html.GetEnumSelectList<Status>()">
+                            <option>Select Status</option>
+                        </select>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div><!--end card-body-->
+        </div><!--end card-->
+    </div>
+</div>
