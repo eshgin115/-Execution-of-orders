@@ -28,7 +28,7 @@
 
                             <td class="text-end">
                                 <a asp-route="admin-order-update" asp-route-id="@item.Identifikator"><i class="las la-pen text-secondary font-16"></i></a>
-                                <form method="POST" asp-route="admin-order-delete" asp-route-id="@item.Identifikator" id="book-form-@item.Identifikator"></form>
+                                <form method="POST" asp-route="admin-order-delete" asp-route-orderId="@item.Identifikator" id="book-form-@item.Identifikator"></form>
                                 <button type="submit" form="book-form-@item.Identifikator">
                                     <i class="las la-trash-alt text-secondary font-16"></i>
                                 </button>

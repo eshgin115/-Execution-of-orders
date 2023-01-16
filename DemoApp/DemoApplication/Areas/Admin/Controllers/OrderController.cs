@@ -87,10 +87,11 @@ namespace DemoApplication.Areas.Admin.Controllers
         [HttpPost("delete/{orderId}", Name = "admin-order-delete")]
         public async Task<IActionResult> Delete(string orderId)
         {
-            var order = await _dbContext.Orders.FirstOrDefaultAsync(o => o.Id == orderId);
+            var order = await _dbContext.Orders.Include(o=>o.OrderProducts).FirstOrDefaultAsync(o => o.Id == orderId);
             if (order == null) return NotFound();
 
             _dbContext.Orders.Remove(order);
+            _dbContext.orderProducts.RemoveRange(order.OrderProducts!);
             await _dbContext.SaveChangesAsync();
 
 
