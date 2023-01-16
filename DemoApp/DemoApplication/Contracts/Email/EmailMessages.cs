@@ -5,6 +5,7 @@
         public static class Subject
         {
             public const string ACTIVATION_MESSAGE = $"Hesabin aktivlesdirilmesi";
+            public const string NOTIFICATION_MESSAGE = $"Order notification";
         }
 
         public static class Body

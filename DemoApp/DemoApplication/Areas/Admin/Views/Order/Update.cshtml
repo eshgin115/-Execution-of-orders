@@ -8,7 +8,7 @@
             </div>
             <div class="card-body">
                 <div class="general-label">
-                    <form method="POST" asp-route="admin-order-update" enctype="multipart/form-data">
+                    <form method="POST" asp-route="admin-order-update" asp-route-id="@Model.Id" enctype="multipart/form-data">
                         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                         <label asp-for="Statuses" class="control-label"></label>
                         <select asp-for="Statuses"
@@ -16,6 +16,7 @@
                                 asp-items="Html.GetEnumSelectList<Status>()">
                             <option>Select Status</option>
                         </select>
+                       
 
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

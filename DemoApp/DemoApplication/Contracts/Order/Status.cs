@@ -28,7 +28,29 @@
 
 
                 default:
-                    throw new Exception("Status size not found");
+                    throw new Exception("Status  not found");
+            }
+
+        }
+        public static string GetNotification(this int status,string firstName, string lastName,string order_number)
+        {
+            switch (status)
+            {
+                case 0:
+                    return  $" Hörmətli {firstName} {lastName}, sizin {order_number} təsdiqləndi.";
+           
+                case 2:
+                    return $"Hörmətli {firstName} {lastName}, sizin {order_number}  təsdiqlənmədi.";
+
+                case 4:
+                    return $"Hörmətli {firstName} {lastName}, sizin {order_number} göndərildi, kuryer sizinlə əlaqə saxlayacaq.";
+                case 8:
+                    return $"Hörmətli {firstName} {lastName}, sizin {order_number} kuryer tərəfindən təhvil verildi.";
+
+
+
+                default:
+                    throw new Exception("Status  not found");
             }
 
         }
