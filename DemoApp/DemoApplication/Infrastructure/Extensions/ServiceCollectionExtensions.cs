@@ -27,6 +27,7 @@ namespace DemoApplication.Infrastructure.Extensions
             services.AddHttpContextAccessor();
 
             services.AddUrlHelper();
+            services.AddSignalR();
 
             services.ConfigureMvc();
 

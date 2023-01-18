@@ -16,13 +16,15 @@ namespace DemoApplication.Areas.Client.Controllers
         private readonly DataContext _dbContext;
         private readonly IUserService _userService;
         private readonly IOrderService _orderService;
+        private readonly INotificationService _notificationService;
 
 
-        public ShoppingController(DataContext dbContext, IUserService userService, IOrderService orderService)
+        public ShoppingController(DataContext dbContext, IUserService userService, IOrderService orderService, INotificationService notificationService)
         {
             _dbContext = dbContext;
             _userService = userService;
             _orderService = orderService;
+            _notificationService = notificationService;
         }
 
         [HttpGet("cart", Name = "client-shopping-cart")]
@@ -34,8 +36,6 @@ namespace DemoApplication.Areas.Client.Controllers
         [ServiceFilter(typeof(IsAuthenticated))]
         public async Task<IActionResult> Checkout()
         {
-
-
             var model = new OrderViewModel
             {
                 SumTotal = (int)_dbContext.BasketProducts
@@ -91,10 +91,11 @@ namespace DemoApplication.Areas.Client.Controllers
                         .Where(bp => bp.Basket.UserId == _userService.CurrentUser.Id)
                        .ToListAsync();
 
-             _dbContext.BasketProducts.RemoveRange(pasketProducts);
+            _dbContext.BasketProducts.RemoveRange(pasketProducts);
 
 
             await _dbContext.SaveChangesAsync();
+            await _notificationService.SenOrderCreatedToAdmin(order.Id);
 
             return RedirectToRoute("client-account-orders");
 

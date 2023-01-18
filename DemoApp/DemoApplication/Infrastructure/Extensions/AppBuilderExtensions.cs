@@ -1,4 +1,6 @@
-﻿namespace DemoApplication.Infrastructure.Extensions
+﻿using DemoApplication.Areas.Admin.Hubs;
+
+namespace DemoApplication.Infrastructure.Extensions
 {
     public static class AppBuilderExtensions
     {
@@ -12,6 +14,8 @@
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{area=exists}/{controller=home}/{action=index}");
+
+            app.MapHub<AlertHub>("hubs/alert-hub");
         }
     }
 }

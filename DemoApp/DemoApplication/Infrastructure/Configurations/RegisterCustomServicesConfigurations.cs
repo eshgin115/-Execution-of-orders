@@ -17,6 +17,7 @@ namespace DemoApplication.Infrastructure.Configurations
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IUserActivationService, UserActivationService>();
             services.AddScoped<IsAuthenticated>();
+            services.AddScoped<INotificationService, NotificationService>();
         }
     }
 }
